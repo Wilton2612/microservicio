@@ -13,3 +13,8 @@ class Reserva(db.Model):
         self.estudiante= estudiante
         self.tipo = tipo
         self.fecha = fecha
+
+    def toDict(self):
+        return dict(mentor=self.mentor, estudiante=self.estudiante, tipo=self.tipo, fecha=self.fecha )
+    
+    

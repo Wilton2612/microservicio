@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, jsonify
 from models.reserva import Reserva
 from utils.db import db
 import re
@@ -30,7 +30,8 @@ def registrar_reserva():
 @reservas.route('/reservas')
 def lista_reservas():
     reservass = Reserva.query.all()
-    return render_template("lista.html", reservass=reservass)
+    print(reservas)
+    return jsonify([s.toDict() for s in reservass])
 
 
 @reservas.route("/reservas/<string:mentor>", methods=["GET"])
@@ -41,7 +42,7 @@ def buscar_by_mentor(mentor):
         
         reservass = db.session.query(Reserva).filter(Reserva.mentor == mentor)
         print(reservass, "solo name")
-        return render_template("unico.html", reservass=reservass)
+        return jsonify([s.toDict() for s in reservass])
     else:
         print("ocurre un error")    
         return render_template("error.html")
