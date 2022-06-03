@@ -1,0 +1,27 @@
+<div>
+
+    {% for reserva in reservass %}
+
+    <div>
+        <h3>
+            {{reserva.mentor}}
+        </h3>
+        <h3>
+            {{reserva.estudiante}}
+        </h3>
+        <p>
+
+            {{reserva.tipo}}
+        </p>
+        <p>
+
+            {{reserva.fecha}}
+        </p>
+
+    </div>
+    {% endfor %}
+</div>
+
+<div>
+    <a href="/reservas">reservas</a>
+</div>

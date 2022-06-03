@@ -1,0 +1,35 @@
+
+<!--<form action="/reservas/<string:mentor>" method="GET">
+
+    <input type="text" name="mentor" placeholder="buscar">
+
+    <button>
+        buscar
+    </button>
+</form>
+-->
+
+
+<div>
+
+{% for reserva in reservass %}
+
+    <div>
+        <h3>
+            {{reserva.mentor}}
+        </h3>
+        <h3>
+            {{reserva.estudiante}}
+        </h3>
+        <p>
+           
+            {{reserva.tipo}}
+        </p>
+        <p>
+           
+            {{reserva.fecha}}
+        </p>
+
+    </div>
+{% endfor %}
+</div>
